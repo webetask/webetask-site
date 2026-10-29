@@ -73,7 +73,7 @@ export const LEGAL: LegalDoc[] = [
             <p>We only collect what we need to run Webetask:</p>
             <ul>
               <li>
-                <strong>Account data.</strong> Your name, email address and profile picture, which we get from Google when you sign in (see section 3).
+                <strong>Account data.</strong> Your name, email address and password when you sign up with email (we store only a secure hash of your password, never the password itself). If you sign in with Google instead, we get your name, email address and profile picture from Google (see section 3).
               </li>
               <li>
                 <strong>Workspace content.</strong> What you and your teammates put into Webetask, like workspaces, projects, tasks, comments, custom fields and files you attach.
@@ -100,7 +100,7 @@ export const LEGAL: LegalDoc[] = [
               <em>If we add Google Drive features later, this policy will be updated before they launch.</em>
             </p>
             <p>
-              Right now, you can only sign in to Webetask with Google. When you do, we ask Google for the <code>openid</code>, <code>email</code> and <code>profile</code> scopes. That gives us exactly three things:
+              You can sign in to Webetask with your email and a password, or with Google. If you choose Google, we ask Google for the <code>openid</code>, <code>email</code> and <code>profile</code> scopes. That gives us exactly three things:
             </p>
             <ul>
               <li>your name</li>
@@ -158,7 +158,7 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Vercel</strong> hosts the Webetask app.
               </li>
               <li>
-                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here.
+                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here. Supabase also sends our sign-up confirmation and password-reset emails today.
               </li>
               <li>
                 <strong>Hostinger</strong> provides the server (VPS) for our marketing website, including the contact form.
@@ -167,7 +167,7 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Paddle</strong> processes payments as our merchant of record and handles billing, invoices and sales tax.
               </li>
               <li>
-                <strong>Resend</strong> sends our transactional emails, like sign-in, invitation and notification emails.
+                <strong>Resend</strong> will send our transactional emails, like sign-in, invitation and notification emails, once we switch over from Supabase&apos;s built-in email.
               </li>
               <li>
                 <strong>Google Analytics</strong> and <strong>Meta Pixel</strong> measure visits to our marketing website only (see section 6).
