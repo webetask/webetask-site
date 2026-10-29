@@ -51,7 +51,7 @@ export default async function LegalPage({ params }: Props) {
               {d.sections.map((s) => (
                 <section key={s.h}>
                   <h2>{s.h}</h2>
-                  <p>{s.body}</p>
+                  {s.rich ? <div className="prose">{s.body}</div> : <p>{s.body}</p>}
                 </section>
               ))}
             </div>

@@ -5,7 +5,7 @@ import { SUPPORT_EMAIL } from "./site";
 // DRAFT legal text in plain language. Have a lawyer review it before launch.
 // Every [BRACKETED] item must be filled in.
 
-export const LEGAL_UPDATED = "[EFFECTIVE DATE]";
+export const LEGAL_UPDATED = "October 29, 2026";
 
 export type LegalDoc = {
   slug: "terms" | "privacy" | "refunds";
@@ -13,7 +13,8 @@ export type LegalDoc = {
   title: string;
   description: string;
   intro: string;
-  sections: { h: string; body: ReactNode }[];
+  // rich: the body holds its own paragraphs or lists, so it is not wrapped in a <p>.
+  sections: { h: string; body: ReactNode; rich?: boolean }[];
 };
 
 export const LEGAL: LegalDoc[] = [
@@ -46,16 +47,214 @@ export const LEGAL: LegalDoc[] = [
     slug: "privacy",
     tab: "Privacy Policy",
     title: "Privacy Policy",
-    description: "What Webetask collects, why, and the control you have over it.",
-    intro: "This policy explains what we collect when you use Webetask, why, and what control you have.",
+    description: "What Webetask collects, including Google user data, why, who we share it with, and the control you have over it.",
+    intro: "This policy explains what we collect when you use Webetask, why we collect it, who we share it with and what control you have. We've kept it in plain language.",
     sections: [
-      { h: "1. What we collect", body: "Your name, email and profile photo. Your workspace content: projects, tasks, comments and custom fields. Basic usage data, like when you log in and which device you use. Payment details are handled by [PAYMENT PROVIDER]; we never see your full card number." },
-      { h: "2. Messages you send us", body: "When you use the contact form, we keep your name, email, team size, topic, message and IP address so we can reply and keep spam out." },
-      { h: "3. Your files", body: "If you connect Google Drive, files are uploaded to your Drive and we keep only a reference to them. If you use Webetask storage, files are stored with our storage provider." },
-      { h: "4. Where data lives", body: "Our database is hosted in the European Union (Frankfurt). [LIST OF SUBPROCESSORS]" },
-      { h: "5. How we use it", body: "To run the service, send the notifications you turned on, answer support requests and improve Webetask. We don't sell your data and we don't use your content for advertising." },
-      { h: "6. Your choices", body: "You can export your data, edit your profile or delete your account at any time. Deleting a workspace removes its data from our systems within [DELETION PERIOD]." },
-      { h: "7. Contact", body: <>Privacy questions go to {SUPPORT_EMAIL}.</> },
+      {
+        h: "1. Who we are and what this policy covers",
+        rich: true,
+        body: (
+          <>
+            <p>
+              Webetask is a task management service for small teams. It&apos;s a product by Webegenix, based in Egypt (&quot;Webetask&quot;, &quot;we&quot;, &quot;us&quot;).
+            </p>
+            <p>
+              This policy covers our marketing website at <a href="https://webetask.app">webetask.app</a> and the Webetask app at{" "}
+              <a href="https://app.webetask.app">app.webetask.app</a>. It also covers any emails we send you and any support we give you. Contact us at {SUPPORT_EMAIL}.
+            </p>
+          </>
+        ),
+      },
+      {
+        h: "2. Data we collect",
+        rich: true,
+        body: (
+          <>
+            <p>We only collect what we need to run Webetask:</p>
+            <ul>
+              <li>
+                <strong>Account data.</strong> Your name, email address and profile picture, which we get from Google when you sign in (see section 3).
+              </li>
+              <li>
+                <strong>Workspace content.</strong> What you and your teammates put into Webetask, like workspaces, projects, tasks, comments, custom fields and files you attach.
+              </li>
+              <li>
+                <strong>Usage and device data.</strong> Basic records like when you log in, which features you use, your browser and device type, and your IP address. We use these to keep the service secure and working.
+              </li>
+              <li>
+                <strong>Payment data.</strong> Paddle handles payments for paid plans as our merchant of record. Paddle collects your card or payment details. We only get your billing name, email, country, plan and payment status. We never see your full card number.
+              </li>
+              <li>
+                <strong>Contact-form messages.</strong> When you use the contact form on our website, we keep your name, email, team size, topic, message and IP address. We use them to reply to you and to keep spam out.
+              </li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        h: "3. Google user data",
+        rich: true,
+        body: (
+          <>
+            <p>
+              <em>If we add Google Drive features later, this policy will be updated before they launch.</em>
+            </p>
+            <p>
+              Right now, you can only sign in to Webetask with Google. When you do, we ask Google for the <code>openid</code>, <code>email</code> and <code>profile</code> scopes. That gives us exactly three things:
+            </p>
+            <ul>
+              <li>your name</li>
+              <li>your email address</li>
+              <li>your profile picture</li>
+            </ul>
+            <p>
+              <strong>Why we use it.</strong> To create your Webetask account and sign you in, and to show your name and photo to your teammates in shared workspaces, for example on tasks assigned to you and on your comments. We also use your email address to send you account emails and the notifications you turned on.
+            </p>
+            <p>
+              <strong>What we don&apos;t access.</strong> We don&apos;t access anything else in your Google Account. That includes your Gmail, Google Drive, Google Calendar and Google Contacts.
+            </p>
+            <p>
+              <strong>How it&apos;s stored.</strong> Your name, email address and profile picture are stored with your Webetask account in our database on Supabase, in the European Union. They&apos;re encrypted in transit and at rest, and only you, members of your workspaces and the staff who need it to run the service can see them. We keep them while your account is active and delete them within 30 days of a deletion request or account deletion.
+            </p>
+            <p>
+              <strong>How it&apos;s never used.</strong> We never sell Google user data. We never use it for advertising, including retargeting or interest-based ads. We never use it to build or train generalized or non-personalized AI or machine learning models. We never share it with anyone except the service providers we need to run the app (see section 5), when the law requires it, or as part of a business transfer described in section 5. We never feed it into Google Analytics, Meta Pixel or any other analytics or advertising tool.
+            </p>
+            <p>
+              Webetask&apos;s use and transfer to any other app of information received from Google APIs will adhere to the{" "}
+              <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.
+            </p>
+            <p>
+              You can remove Webetask&apos;s access to your Google Account at any time at{" "}
+              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. After that you won&apos;t be able to sign in with Google. To delete the data we already hold, see section 8.
+            </p>
+          </>
+        ),
+      },
+      {
+        h: "4. How we use data",
+        rich: true,
+        body: (
+          <>
+            <p>We use the data above to:</p>
+            <ul>
+              <li>run the service: create your account, sign you in, show your workspace to you and your teammates, and process payments</li>
+              <li>send account emails and the notifications you turned on</li>
+              <li>answer your support requests and contact-form messages</li>
+              <li>keep Webetask secure, and prevent abuse, fraud and spam</li>
+              <li>improve the product, using usage data to see which features work and which don&apos;t</li>
+            </ul>
+            <p>We don&apos;t sell your data. We don&apos;t show ads based on your workspace content, and we don&apos;t use it for advertising of any kind.</p>
+          </>
+        ),
+      },
+      {
+        h: "5. Sharing",
+        rich: true,
+        body: (
+          <>
+            <p>We share data only with the service providers we need to run Webetask. Each one only gets what it needs for its job:</p>
+            <ul>
+              <li>
+                <strong>Vercel</strong> hosts the Webetask app.
+              </li>
+              <li>
+                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here.
+              </li>
+              <li>
+                <strong>Hostinger</strong> provides the server (VPS) for our marketing website, including the contact form.
+              </li>
+              <li>
+                <strong>Paddle</strong> processes payments as our merchant of record and handles billing, invoices and sales tax.
+              </li>
+              <li>
+                <strong>Resend</strong> sends our transactional emails, like sign-in, invitation and notification emails.
+              </li>
+              <li>
+                <strong>Google Analytics</strong> and <strong>Meta Pixel</strong> measure visits to our marketing website only (see section 6).
+              </li>
+            </ul>
+            <p>
+              <strong>Legal requests.</strong> We may share data if the law requires it, for example a valid court order. We may also share it when we need to protect the rights, safety or property of our users, the public or Webetask. Where the law allows, we&apos;ll tell you first.
+            </p>
+            <p>
+              <strong>Business transfer.</strong> If Webetask or Webegenix is part of a merger, acquisition or sale of assets, your data may move to the new owner. If it does, this policy will keep protecting it, including the rules for Google user data in section 3. We&apos;ll email you before it happens.
+            </p>
+          </>
+        ),
+      },
+      {
+        h: "6. Cookies and analytics",
+        rich: true,
+        body: (
+          <>
+            <p>
+              Our marketing website at webetask.app uses Google Analytics and Meta Pixel. They set cookies so we can see how people find and use the site, and how well our ads work. They collect things like the pages you visit, how you got there, your browser and device, and a rough location based on your IP address. These tools are never fed with Google user data or your workspace content.
+            </p>
+            <p>The Webetask app only uses the cookies it needs to keep you signed in and to work properly.</p>
+            <p>You can opt out at any time:</p>
+            <ul>
+              <li>block or delete cookies in your browser settings</li>
+              <li>
+                install the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out browser add-on</a>
+              </li>
+              <li>
+                manage ad preferences in your <a href="https://accountscenter.facebook.com/ad_preferences">Meta ad settings</a>
+              </li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        h: "7. Security",
+        rich: true,
+        body: (
+          <>
+            <p>We take reasonable steps to protect your data:</p>
+            <ul>
+              <li>All data is encrypted in transit with HTTPS (TLS) and encrypted at rest in our database.</li>
+              <li>Only staff who need access to run or support the service can reach it.</li>
+              <li>Row-level access controls in our database mean each workspace&apos;s data can only be read by its own members.</li>
+            </ul>
+            <p>No system is perfectly secure. If a breach affects your data, we&apos;ll tell you and any authorities the law requires, without undue delay.</p>
+          </>
+        ),
+      },
+      {
+        h: "8. Retention and deletion",
+        rich: true,
+        body: (
+          <>
+            <ul>
+              <li>We keep account data, workspace content and Google user data while your account is active.</li>
+              <li>When you delete your account or workspace, or ask us to delete your data, we delete it within 30 days.</li>
+              <li>We keep contact-form messages for up to 24 months, then delete them.</li>
+              <li>Paddle and we may keep billing records for longer when tax or accounting laws require it.</li>
+            </ul>
+            <p>
+              To ask for deletion or a copy (export) of your data, email {SUPPORT_EMAIL} from the email address on your account. You can also disconnect Google at{" "}
+              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.
+            </p>
+          </>
+        ),
+      },
+      {
+        h: "9. Your rights",
+        body: (
+          <>
+            You can ask to access, correct, delete or export your data, and you can object to how we use it. Email {SUPPORT_EMAIL} and we&apos;ll reply within 30 days. You can also edit your profile in the app at any time. If you&apos;re in the EU or UK, you can also complain to your local data protection authority.
+          </>
+        ),
+      },
+      { h: "10. Children", body: "Webetask isn't meant for anyone under 16, and we don't knowingly collect data from children under 16. If you think a child has given us data, email us and we'll delete it." },
+      {
+        h: "11. International transfers",
+        body: "We're based in Egypt. Our database is in the EU, and some of our service providers may process data in other countries, including the United States. When data moves between countries, we rely on our providers' safeguards, like the EU Standard Contractual Clauses, to protect it.",
+      },
+      {
+        h: "12. Changes to this policy",
+        body: "If we change this policy, we'll update the date at the top of this page. Before any material change, especially to how we use Google user data, we'll email you first. We'll also ask for your consent where the law or Google's policies require it.",
+      },
+      { h: "13. Contact", body: <>Privacy questions or requests go to {SUPPORT_EMAIL}. Webetask is a product by Webegenix, Egypt.</> },
     ],
   },
   {
