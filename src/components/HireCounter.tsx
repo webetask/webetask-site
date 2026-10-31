@@ -19,7 +19,7 @@ export function HireCounter() {
   if (size === 10) verdict = "Still $19. One more hire moves you to Pro.";
   else if (size > 10 && size <= 30) verdict = "Pro covers up to 30 people, one price.";
   else if (size > 30 && size < MAX) verdict = "Business covers up to 50 people.";
-  else if (size >= MAX) verdict = "50 people for $129.";
+  else if (size >= MAX) verdict = "50 people for $149.";
 
   return (
     <div className="stack stack--lg">
