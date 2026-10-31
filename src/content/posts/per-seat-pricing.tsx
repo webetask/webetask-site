@@ -14,9 +14,9 @@ export const meta: PostMeta = {
 const rows = [
   { team: 5, asana: "$67.45", clickup: "$50", trello: "$62.50", us: "$19" },
   { team: 10, asana: "$134.90", clickup: "$100", trello: "$125", us: "$19" },
-  { team: 20, asana: "$269.80", clickup: "$200", trello: "$250", us: "$49" },
-  { team: 30, asana: "$404.70", clickup: "$300", trello: "$375", us: "$49" },
-  { team: 50, asana: "$674.50", clickup: "$500", trello: "$625", us: "$129" },
+  { team: 20, asana: "$269.80", clickup: "$200", trello: "$250", us: "$59" },
+  { team: 30, asana: "$404.70", clickup: "$300", trello: "$375", us: "$59" },
+  { team: 50, asana: "$674.50", clickup: "$500", trello: "$625", us: "$149" },
 ];
 
 export default function Post() {

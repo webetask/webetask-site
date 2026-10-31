@@ -7,7 +7,7 @@ import { cssVar } from "@/lib/css";
 export const metadata = pageMeta({
   title: "Pricing: one flat price per workspace | Webetask",
   description:
-    "Free for 3 people. Team $19/month for up to 10 users, Pro $49 for up to 30, Business $129 for up to 50. Unlimited Google Drive storage on every plan. No per-seat pricing.",
+    "Free for 3 people. Team $19/month for up to 10 users, Pro $59 for up to 30, Business $149 for up to 50. Unlimited Google Drive storage on every plan. No per-seat pricing.",
   path: "/pricing",
 });
 
@@ -28,7 +28,7 @@ const GROUPS: { title: string; rows: [string, Cell, Cell, Cell, Cell][] }[] = [
       ["Views", "Kanban, List", "+ Calendar, Table", "+ Timeline", "All"],
       ["Custom fields per project", "3", "15", "Unlimited", "Unlimited"],
       ["Auto-assign by column", null, "Add-on", "✓", "✓"],
-      ["Automation runs a month", null, "Add-on", "1,000", "Unlimited"],
+      ["Automation runs a month", null, "Add-on", "Unlimited", "Unlimited"],
       ["Recurring tasks", null, "✓", "✓", "✓"],
       ["Private projects", null, "✓", "✓", "✓"],
       ["Private folders", null, null, null, "✓"],
@@ -53,7 +53,7 @@ const GROUPS: { title: string; rows: [string, Cell, Cell, Cell, Cell][] }[] = [
 ];
 
 const ADDONS = [
-  { name: "Automations", price: "$6", per: "/mo", text: "1,000 runs a month on Team. Included in Pro and Business." },
+  { name: "Automations", price: "$6", per: "/mo", text: "Unlimited runs on Team. Included in Pro and Business." },
   { name: "Extra storage", price: "$4", per: "/mo", text: "+100 GB of Webetask hosted storage." },
   { name: "WhatsApp alerts", price: "from $15", per: "", text: "1,000 credits. Pro includes 200 a month, Business 500.", soon: true },
   { name: "AI assistant", price: "$8", per: "/mo", text: "+1,000 AI credits. Free gets 20 a month, Pro 300, Business 1,000.", soon: true },
