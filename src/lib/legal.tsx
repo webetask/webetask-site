@@ -186,6 +186,9 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Google Drive</strong> stores the files of workspaces that connect their own Drive (see section 3).
               </li>
               <li>
+                <strong>Sentry</strong> receives error reports when something breaks in the app, in the EU: the error, the page address (without private parts like invite or sign-in links), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
+              </li>
+              <li>
                 <strong>Resend</strong> sends our emails, like sign-up confirmation, password reset, invitation and notification emails.
               </li>
               <li>
