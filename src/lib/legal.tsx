@@ -294,7 +294,7 @@ export const LEGAL: LegalDoc[] = [
     description: "When and how Webetask refunds payments.",
     intro: "We want you to pay only for something that works for your team.",
     sections: [
-      { h: "1. First payment", body: "Not happy after your first paid month or year? Ask within 14 days and we'll refund it in full." },
+      { h: "1. First payment", body: "Not happy with Webetask? Ask within 14 days of your first payment and we'll refund it in full. This works the same for monthly and yearly plans. The 14-day free trial doesn't need a refund, because nothing is charged during the trial." },
       { h: "2. Renewals", body: "Renewals aren't refunded, but you can cancel before the next billing date and you won't be charged again." },
       { h: "3. Add-ons and customizations", body: "Add-ons can be cancelled anytime and stop at the end of the billing period you paid for. Customizations are approved by you before we start, and aren't refunded once delivered." },
       { h: "4. How to ask", body: <>Email {SUPPORT_EMAIL} from the workspace owner&apos;s address. Refunds are issued through Paddle, our merchant of record, back to the original payment method within 5 to 10 business days.</> },
