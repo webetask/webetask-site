@@ -2,10 +2,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { SUPPORT_EMAIL } from "./site";
 
-// DRAFT legal text in plain language. Have a lawyer review it before launch.
-// Every [BRACKETED] item must be filled in.
+// Legal text in plain language. The same text is on app.webetask.app
+// (src/content/legal/ in the app repo): change both together.
+// Terms sections 6 (Liability) and 7 (Governing law) are interim wording, to be reviewed with a lawyer.
 
-export const LEGAL_UPDATED = "October 29, 2026";
+export const LEGAL_UPDATED = "October 31, 2026";
 
 export type LegalDoc = {
   slug: "terms" | "privacy" | "refunds";
@@ -23,23 +24,26 @@ export const LEGAL: LegalDoc[] = [
     tab: "Terms of Service",
     title: "Terms of Service",
     description: "The terms that cover your use of Webetask.",
-    intro: 'These terms cover your use of Webetask, the task management service at webetask.app, run by Webetask ("we"). By creating an account, you agree to them.',
+    intro: 'These terms cover your use of Webetask, the task management service at webetask.app and app.webetask.app, run by Webegenix, based in Egypt ("Webetask", "we"). By creating an account, you agree to them.',
     sections: [
       { h: "1. Your account", body: "You need a valid email to sign up. You're responsible for everyone you invite to your workspace and for keeping your login safe. The person who creates a workspace is its owner." },
       {
         h: "2. Plans and billing",
         body: (
           <>
-            Paid plans are billed monthly or yearly in advance, in US dollars, through [PAYMENT PROVIDER]. Each plan has the limits listed on our{" "}
+            Paid plans are billed monthly or yearly in advance, in US dollars, through Paddle, our reseller and merchant of record. Paddle handles the payment, invoices and sales tax. Each plan has the limits listed on our{" "}
             <Link href="/pricing">pricing page</Link>. Prices can change with at least 30 days&apos; notice by email.
           </>
         ),
       },
-      { h: "3. Your content", body: "Everything you put into Webetask stays yours. Files you upload through a connected Google Drive are stored in that Drive. We only access your content to run the service and to support you when you ask." },
+      { h: "3. Your content", body: "Everything you put into Webetask stays yours. Files you attach are stored where your workspace chooses: in your connected Google Drive, or in Webetask's hosted storage (Cloudflare R2). We only access your content to run the service and to support you when you ask." },
       { h: "4. Fair use", body: "Don't use Webetask to break the law, send spam, store harmful files or attack the service. We can suspend workspaces that do." },
       { h: "5. Downgrades and cancellation", body: "You can cancel anytime from billing settings. Your plan runs until the end of the period you paid for. If you go over a plan's limits after downgrading, extra projects and users become read-only. Nothing is deleted." },
-      { h: "6. Liability", body: "[LIABILITY CLAUSE, to be written with a lawyer]" },
-      { h: "7. Governing law", body: "[GOVERNING LAW AND JURISDICTION, to be confirmed once the company is registered]" },
+      {
+        h: "6. Liability",
+        body: 'Webetask is provided "as is". We work hard to keep it running and your data safe, but we can\'t promise it will always be available or free of errors. As far as the law allows, we\'re not liable for indirect or consequential losses, like lost profits or lost data, and our total liability for any claim is limited to the amount you paid us in the 12 months before the claim. Nothing in these terms limits liability that the law doesn\'t allow us to limit.',
+      },
+      { h: "7. Governing law", body: "These terms are governed by the laws of Egypt, and disputes go to the courts of Cairo, Egypt. If you're a consumer, you keep any rights your local law gives you." },
       { h: "8. Contact", body: <>Questions about these terms: {SUPPORT_EMAIL}</> },
     ],
   },
@@ -73,13 +77,16 @@ export const LEGAL: LegalDoc[] = [
             <p>We only collect what we need to run Webetask:</p>
             <ul>
               <li>
-                <strong>Account data.</strong> Your name, email address and password when you sign up with email (we store only a secure hash of your password, never the password itself). If you sign in with Google instead, we get your name, email address and profile picture from Google (see section 3).
+                <strong>Account data.</strong> Your name, email address and password when you sign up with email (we store only a secure hash of your password, never the password itself). If you sign in with Google instead, we get your name, email address and profile picture from Google (see section 3). You can also add a profile photo, your timezone and your notification settings.
               </li>
               <li>
                 <strong>Workspace content.</strong> What you and your teammates put into Webetask, like workspaces, projects, tasks, comments, custom fields and files you attach.
               </li>
               <li>
-                <strong>Usage and device data.</strong> Basic records like when you log in, which features you use, your browser and device type, and your IP address. We use these to keep the service secure and working.
+                <strong>Files.</strong> Files you attach are stored where your workspace chooses: in Webetask&apos;s hosted storage (Cloudflare R2), or in the workspace&apos;s own connected Google Drive (see section 3).
+              </li>
+              <li>
+                <strong>Usage and device data.</strong> Basic records like when you log in, which features you use, your browser and device type, and your IP address. We use these to keep the service secure and working. If you turn on push notifications, we also store the push address your browser gives us for that device.
               </li>
               <li>
                 <strong>Payment data.</strong> Paddle handles payments for paid plans as our merchant of record. Paddle collects your card or payment details. We only get your billing name, email, country, plan and payment status. We never see your full card number.
@@ -97,10 +104,11 @@ export const LEGAL: LegalDoc[] = [
         body: (
           <>
             <p>
-              <em>If we add Google Drive features later, this policy will be updated before they launch.</em>
+              You can sign in to Webetask with your email and a password, or with Google. A workspace can also connect a Google Drive account to store its files. These are the only two ways Webetask uses Google.
             </p>
+            <h3>Signing in with Google</h3>
             <p>
-              You can sign in to Webetask with your email and a password, or with Google. If you choose Google, we ask Google for the <code>openid</code>, <code>email</code> and <code>profile</code> scopes. That gives us exactly three things:
+              If you choose Google to sign in, we ask Google for the <code>openid</code>, <code>email</code> and <code>profile</code> scopes. That gives us exactly three things:
             </p>
             <ul>
               <li>your name</li>
@@ -110,8 +118,19 @@ export const LEGAL: LegalDoc[] = [
             <p>
               <strong>Why we use it.</strong> To create your Webetask account and sign you in, and to show your name and photo to your teammates in shared workspaces, for example on tasks assigned to you and on your comments. We also use your email address to send you account emails and the notifications you turned on.
             </p>
+            <h3>Connecting Google Drive for files</h3>
             <p>
-              <strong>What we don&apos;t access.</strong> We don&apos;t access anything else in your Google Account. That includes your Gmail, Google Drive, Google Calendar and Google Contacts.
+              A workspace&apos;s Owner or Super Admin can choose to store the workspace&apos;s files in a Google Drive account. If they connect one, we ask Google for the <code>drive.file</code> scope, plus their email address to show which account is connected. The <code>drive.file</code> scope only lets Webetask see and manage the files and folders that Webetask itself creates in that Drive: a &quot;Webetask&quot; folder with a folder per project and task, and the files your team attaches there. Webetask can&apos;t see, open or change any other files in that Drive.
+            </p>
+            <p>
+              <strong>Why we use it.</strong> To save the files your team attaches to tasks and comments in your own Drive, to open them for members of your workspace, to rename and move their folders when projects and tasks are renamed or moved, and to move files to the Drive&apos;s trash when they&apos;re deleted in Webetask.
+            </p>
+            <p>
+              <strong>How it&apos;s stored.</strong> We keep an encrypted connection key on our servers so Webetask can reach those files. It&apos;s never sent to browsers. Disconnecting Google Drive in Settings → Storage deletes the key. The files stay in your Drive.
+            </p>
+            <h3>For both</h3>
+            <p>
+              <strong>What we don&apos;t access.</strong> We don&apos;t access anything else in your Google Account. That includes your Gmail, Google Calendar, Google Contacts, and any Google Drive files that Webetask didn&apos;t create.
             </p>
             <p>
               <strong>How it&apos;s stored.</strong> Your name, email address and profile picture are stored with your Webetask account in our database on Supabase, in the European Union. They&apos;re encrypted in transit and at rest, and only you, members of your workspaces and the staff who need it to run the service can see them. We keep them while your account is active and delete them within 30 days of a deletion request or account deletion.
@@ -125,7 +144,7 @@ export const LEGAL: LegalDoc[] = [
             </p>
             <p>
               You can remove Webetask&apos;s access to your Google Account at any time at{" "}
-              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. After that you won&apos;t be able to sign in with Google. To delete the data we already hold, see section 8.
+              <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. After that you won&apos;t be able to sign in with Google, and a connected Drive stops working until it&apos;s connected again. To delete the data we already hold, see section 8.
             </p>
           </>
         ),
@@ -137,8 +156,8 @@ export const LEGAL: LegalDoc[] = [
           <>
             <p>We use the data above to:</p>
             <ul>
-              <li>run the service: create your account, sign you in, show your workspace to you and your teammates, and process payments</li>
-              <li>send account emails and the notifications you turned on</li>
+              <li>run the service: create your account, sign you in, show your workspace to you and your teammates, store and open your files, and process payments</li>
+              <li>send account emails, and the email and push notifications you turned on</li>
               <li>answer your support requests and contact-form messages</li>
               <li>keep Webetask secure, and prevent abuse, fraud and spam</li>
               <li>improve the product, using usage data to see which features work and which don&apos;t</li>
@@ -158,16 +177,25 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Vercel</strong> hosts the Webetask app.
               </li>
               <li>
-                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here. Supabase also sends our sign-up confirmation and password-reset emails today.
+                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here.
+              </li>
+              <li>
+                <strong>Cloudflare (R2)</strong> stores the files of workspaces that choose Webetask&apos;s hosted storage.
+              </li>
+              <li>
+                <strong>Google Drive</strong> stores the files of workspaces that connect their own Drive (see section 3).
+              </li>
+              <li>
+                <strong>Resend</strong> sends our emails, like sign-up confirmation, password reset, invitation and notification emails.
+              </li>
+              <li>
+                <strong>Browser push services</strong> (from Google, Apple or Mozilla, depending on your browser) deliver push notifications to devices where you turned them on. They receive the device&apos;s push address and an encrypted message that only your device can read.
               </li>
               <li>
                 <strong>Hostinger</strong> provides the server (VPS) for our marketing website, including the contact form.
               </li>
               <li>
                 <strong>Paddle</strong> processes payments as our merchant of record and handles billing, invoices and sales tax.
-              </li>
-              <li>
-                <strong>Resend</strong> will send our transactional emails, like sign-in, invitation and notification emails, once we switch over from Supabase&apos;s built-in email.
               </li>
               <li>
                 <strong>Google Analytics</strong> and <strong>Meta Pixel</strong> measure visits to our marketing website only (see section 6).
@@ -214,6 +242,7 @@ export const LEGAL: LegalDoc[] = [
               <li>All data is encrypted in transit with HTTPS (TLS) and encrypted at rest in our database.</li>
               <li>Only staff who need access to run or support the service can reach it.</li>
               <li>Row-level access controls in our database mean each workspace&apos;s data can only be read by its own members.</li>
+              <li>Links to files only work for a few minutes, and only for people who can see the task.</li>
             </ul>
             <p>No system is perfectly secure. If a breach affects your data, we&apos;ll tell you and any authorities the law requires, without undue delay.</p>
           </>
@@ -227,6 +256,7 @@ export const LEGAL: LegalDoc[] = [
             <ul>
               <li>We keep account data, workspace content and Google user data while your account is active.</li>
               <li>When you delete your account or workspace, or ask us to delete your data, we delete it within 30 days.</li>
+              <li>Items moved to a workspace&apos;s Trash are deleted for good after 30 days, together with their hosted files. Files stored in a connected Google Drive are moved to that Drive&apos;s trash.</li>
               <li>We keep contact-form messages for up to 24 months, then delete them.</li>
               <li>Paddle and we may keep billing records for longer when tax or accounting laws require it.</li>
             </ul>
@@ -264,10 +294,10 @@ export const LEGAL: LegalDoc[] = [
     description: "When and how Webetask refunds payments.",
     intro: "We want you to pay only for something that works for your team.",
     sections: [
-      { h: "1. First payment", body: "Not happy after your first paid month or year? Ask within [REFUND WINDOW] days and we'll refund it in full." },
+      { h: "1. First payment", body: "Not happy after your first paid month or year? Ask within 14 days and we'll refund it in full." },
       { h: "2. Renewals", body: "Renewals aren't refunded, but you can cancel before the next billing date and you won't be charged again." },
-      { h: "3. Add-ons and customizations", body: "Monthly add-ons can be cancelled anytime and stop at the end of the month. Customizations are approved by you before we start, and aren't refunded once delivered." },
-      { h: "4. How to ask", body: <>Email {SUPPORT_EMAIL} from the workspace owner&apos;s address. Refunds go back to the original payment method within [PROCESSING TIME].</> },
+      { h: "3. Add-ons and customizations", body: "Add-ons can be cancelled anytime and stop at the end of the billing period you paid for. Customizations are approved by you before we start, and aren't refunded once delivered." },
+      { h: "4. How to ask", body: <>Email {SUPPORT_EMAIL} from the workspace owner&apos;s address. Refunds are issued through Paddle, our merchant of record, back to the original payment method within 5 to 10 business days.</> },
     ],
   },
 ];

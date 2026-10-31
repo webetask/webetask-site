@@ -19,7 +19,7 @@ Open http://localhost:3000
 | Colors, fonts, all styles | `src/app/globals.css` (tokens at the top) |
 | Prices, plans, links, support email | `src/lib/site.ts` |
 | Competitor numbers (compare pages) | `src/lib/competitors.ts` |
-| Legal text (draft) | `src/lib/legal.tsx` |
+| Legal text (same as the app's copy) | `src/lib/legal.tsx` |
 | Blog posts | `src/content/posts/` (register new ones in `src/lib/blog.ts`) |
 | Pages | `src/app/**/page.tsx` |
 | Contact form backend | `src/app/api/contact/route.ts` |
