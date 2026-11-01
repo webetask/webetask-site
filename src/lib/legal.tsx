@@ -36,7 +36,7 @@ export const LEGAL: LegalDoc[] = [
           </>
         ),
       },
-      { h: "3. Your content", body: "Everything you put into Webetask stays yours. Files you attach are stored where your workspace chooses: in your connected Google Drive, or in Webetask's hosted storage (Cloudflare R2). We only access your content to run the service and to support you when you ask." },
+      { h: "3. Your content", body: "Everything you put into Webetask stays yours. Files you attach are stored where your workspace chooses: in your connected Google Drive, or in Webetask's hosted storage. We only access your content to run the service and to support you when you ask." },
       { h: "4. Fair use", body: "Don't use Webetask to break the law, send spam, store harmful files or attack the service. We can suspend workspaces that do." },
       { h: "5. Downgrades and cancellation", body: "You can cancel anytime from billing settings. Your plan runs until the end of the period you paid for. If you go over a plan's limits after downgrading, extra projects and users become read-only. Nothing is deleted." },
       {
@@ -83,7 +83,7 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Workspace content.</strong> What you and your teammates put into Webetask, like workspaces, projects, tasks, comments, custom fields and files you attach.
               </li>
               <li>
-                <strong>Files.</strong> Files you attach are stored where your workspace chooses: in Webetask&apos;s hosted storage (Cloudflare R2), or in the workspace&apos;s own connected Google Drive (see section 3).
+                <strong>Files.</strong> Files you attach are stored where your workspace chooses: in Webetask&apos;s hosted storage, or in the workspace&apos;s own connected Google Drive (see section 3).
               </li>
               <li>
                 <strong>Usage and device data.</strong> Basic records like when you log in, which features you use, your browser and device type, and your IP address. We use these to keep the service secure and working. If you turn on push notifications, we also store the push address your browser gives us for that device.
@@ -133,7 +133,7 @@ export const LEGAL: LegalDoc[] = [
               <strong>What we don&apos;t access.</strong> We don&apos;t access anything else in your Google Account. That includes your Gmail, Google Calendar, Google Contacts, and any Google Drive files that Webetask didn&apos;t create.
             </p>
             <p>
-              <strong>How it&apos;s stored.</strong> Your name, email address and profile picture are stored with your Webetask account in our database on Supabase, in the European Union. They&apos;re encrypted in transit and at rest, and only you, members of your workspaces and the staff who need it to run the service can see them. We keep them while your account is active and delete them within 30 days of a deletion request or account deletion.
+              <strong>How it&apos;s stored.</strong> Your name, email address and profile picture are stored with your Webetask account in our database, in the European Union. They&apos;re encrypted in transit and at rest, and only you, members of your workspaces and the staff who need it to run the service can see them. We keep them while your account is active and delete them within 30 days of a deletion request or account deletion.
             </p>
             <p>
               <strong>How it&apos;s never used.</strong> We never sell Google user data. We never use it for advertising, including retargeting or interest-based ads. We never use it to build or train generalized or non-personalized AI or machine learning models. We never share it with anyone except the service providers we need to run the app (see section 5), when the law requires it, or as part of a business transfer described in section 5. We never feed it into Google Analytics, Meta Pixel or any other analytics or advertising tool.
@@ -174,39 +174,40 @@ export const LEGAL: LegalDoc[] = [
             <p>We share data only with the service providers we need to run Webetask. Each one only gets what it needs for its job:</p>
             <ul>
               <li>
-                <strong>Vercel</strong> hosts the Webetask app.
+                <strong>Hosting:</strong> a cloud hosting provider runs the Webetask app.
               </li>
               <li>
-                <strong>Supabase</strong> runs our database and sign-in (authentication), in the EU region. Your account data, workspace content and Google user data are stored here.
+                <strong>Database and sign-in:</strong> a database provider in the EU runs our database and sign-in (authentication). Your account data, workspace content and Google user data are stored here.
               </li>
               <li>
-                <strong>Cloudflare (R2)</strong> stores the files of workspaces that choose Webetask&apos;s hosted storage.
+                <strong>Hosted file storage:</strong> a cloud storage provider stores the files of workspaces that choose Webetask&apos;s hosted storage.
               </li>
               <li>
                 <strong>Google Drive</strong> stores the files of workspaces that connect their own Drive (see section 3).
               </li>
               <li>
-                <strong>Sentry</strong> receives error reports when something breaks in the app, in the EU: the error, the page address (without private parts like invite or sign-in links), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
+                <strong>Error reports:</strong> an error-monitoring service in the EU receives error reports when something breaks in the app: the error, the page address (without private parts like invite or sign-in links), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
               </li>
               <li>
-                <strong>PostHog</strong> receives usage stats from the app, in the EU, only if you accept analytics cookies: which pages and features are used (like creating a task or inviting someone), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
+                <strong>Usage stats:</strong> a product-analytics service in the EU receives usage stats from the app, only if you accept analytics cookies (see section 6): which pages and features are used (like creating a task or inviting someone), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
               </li>
               <li>
-                <strong>Resend</strong> sends our emails, like sign-up confirmation, password reset, invitation and notification emails.
+                <strong>Email delivery:</strong> an email provider sends our emails, like sign-up confirmation, password reset, invitation and notification emails.
               </li>
               <li>
                 <strong>Browser push services</strong> (from Google, Apple or Mozilla, depending on your browser) deliver push notifications to devices where you turned them on. They receive the device&apos;s push address and an encrypted message that only your device can read.
               </li>
               <li>
-                <strong>Hostinger</strong> provides the server (VPS) for our marketing website, including the contact form.
+                <strong>Website server:</strong> a hosting company provides the server for our marketing website, including the contact form.
               </li>
               <li>
                 <strong>Paddle</strong> processes payments as our merchant of record and handles billing, invoices and sales tax.
               </li>
               <li>
-                <strong>Google Analytics</strong> and <strong>Meta Pixel</strong> measure visits to our marketing website only (see section 6).
+                <strong>Website analytics:</strong> analytics and advertising tools measure visits to our marketing website only (see section 6).
               </li>
             </ul>
+            <p>These providers only act on our instructions and must keep your data safe. For the current list of providers by name, email support@webetask.app.</p>
             <p>
               <strong>Legal requests.</strong> We may share data if the law requires it, for example a valid court order. We may also share it when we need to protect the rights, safety or property of our users, the public or Webetask. Where the law allows, we&apos;ll tell you first.
             </p>
