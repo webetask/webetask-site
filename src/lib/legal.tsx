@@ -6,7 +6,7 @@ import { SUPPORT_EMAIL } from "./site";
 // (src/content/legal/ in the app repo): change both together.
 // Terms sections 6 (Liability) and 7 (Governing law) are interim wording, to be reviewed with a lawyer.
 
-export const LEGAL_UPDATED = "October 31, 2026";
+export const LEGAL_UPDATED = "November 1, 2026";
 
 export type LegalDoc = {
   slug: "terms" | "privacy" | "refunds";
@@ -189,6 +189,9 @@ export const LEGAL: LegalDoc[] = [
                 <strong>Sentry</strong> receives error reports when something breaks in the app, in the EU: the error, the page address (without private parts like invite or sign-in links), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
               </li>
               <li>
+                <strong>PostHog</strong> receives usage stats from the app, in the EU, only if you accept analytics cookies: which pages and features are used (like creating a task or inviting someone), your browser and device type, and an anonymous user id. Never task content, names, emails or file names.
+              </li>
+              <li>
                 <strong>Resend</strong> sends our emails, like sign-up confirmation, password reset, invitation and notification emails.
               </li>
               <li>
@@ -221,9 +224,14 @@ export const LEGAL: LegalDoc[] = [
             <p>
               Our marketing website at webetask.app uses Google Analytics and Meta Pixel. They set cookies so we can see how people find and use the site, and how well our ads work. They collect things like the pages you visit, how you got there, your browser and device, and a rough location based on your IP address. These tools are never fed with Google user data or your workspace content.
             </p>
-            <p>The Webetask app only uses the cookies it needs to keep you signed in and to work properly.</p>
+            <p>
+              The Webetask app uses the cookies it needs to keep you signed in and to work properly. If you accept analytics cookies in the app&apos;s cookie banner, PostHog also sets cookies so we can see which features people use. You can change your choice anytime with <strong>Cookie settings</strong> (in the menu under your photo, and at the bottom of the login and pricing pages).
+            </p>
             <p>You can opt out at any time:</p>
             <ul>
+              <li>
+                in the Webetask app, open <strong>Cookie settings</strong> and choose No thanks
+              </li>
               <li>block or delete cookies in your browser settings</li>
               <li>
                 install the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out browser add-on</a>
