@@ -5,9 +5,9 @@ import { breadcrumbLd, pageMeta } from "@/lib/seo";
 import { cssVar } from "@/lib/css";
 
 export const metadata = pageMeta({
-  title: "Features: boards, custom workflows, auto-assign and unlimited files | Webetask",
+  title: "Features: boards, auto-assign, client approvals, AI and unlimited files | Webetask",
   description:
-    "Kanban, List, Calendar, Table and Timeline views, custom columns and fields, auto-assign by column, push alerts, client approvals and unlimited files through Google Drive.",
+    "Kanban, List, Calendar, Table and Timeline views, custom columns and fields, auto-assign by column, client approvals, an AI assistant that knows each client's brand, Claude and ChatGPT connectors, and unlimited files through Google Drive.",
   path: "/features",
 });
 
@@ -18,6 +18,8 @@ const JUMP = [
   ["files", "Files"],
   ["alerts", "Notifications"],
   ["guests", "Client approvals"],
+  ["ai", "AI assistant"],
+  ["connect", "Claude and ChatGPT"],
   ["essentials", "Essentials"],
 ];
 
@@ -28,6 +30,15 @@ const ALERTS: [string, boolean, boolean, string | null][] = [
   ["A card moves into your column", true, true, null],
   ["Due tomorrow", true, true, "Daily digest"],
   ["Overdue", true, true, "Daily digest"],
+];
+
+const AI_TOOLS = ["Write caption", "Hashtags and hooks", "Brief from the idea", "Rewrite", "Translate", "Summarise comments", "Checklist steps"];
+
+const CONNECT_ASKS = [
+  ["You", "What's due this week for Northwind Dental?"],
+  ["Claude", "3 cards: Braces FAQ carousel (Design, Nov 6), Check-up reminder post (Approval, Nov 8), Clinic tour reel (Nov 18)."],
+  ["You", "Move the carousel to Client approval."],
+  ["Claude", "Moving #41 to Client approval. Allow?"],
 ];
 
 const ESSENTIALS = [
@@ -255,7 +266,7 @@ export default function FeaturesPage() {
               <span style={{ aspectRatio: "1", borderRadius: 10, background: "var(--tint)" }} />
               <span style={{ aspectRatio: "1", borderRadius: 10, background: "var(--citrus)" }} />
             </div>
-            <span className="small muted">Viewing as a guest. You can see this client&apos;s board only.</span>
+            <span className="small muted">Version 2, sent for review Nov 5. Feedback is required to request changes.</span>
             <div className="btn-row">
               <span className="btn btn--dark btn--sm">Approve</span>
               <span className="btn btn--outline btn--sm">Request changes</span>
@@ -263,11 +274,99 @@ export default function FeaturesPage() {
           </div>
           <div className="stack">
             <h2 className="h2">Clients approve inside the board.</h2>
-            <p className="lead">Invite clients as guests. They see their own work, approve or ask for changes, and the card moves on. No more screenshots in WhatsApp.</p>
+            <p className="lead">
+              Send the exact version for review. Your client approves and the card moves forward with &ldquo;Approved by Helen&rdquo;, or asks for changes and
+              it goes back with their feedback. Edit it after review and the card shows it needs a fresh look.
+            </p>
+            <p>
+              Asking for changes yourself? Tick what needs fixing and the card goes back to the column that fixes it. Then tap{" "}
+              <b>Notify on WhatsApp</b> to send that person a ready message with the task link.
+            </p>
             <div className="pill-note">
-              <span>10 guests on Pro</span>
+              <span>10 client guests on Pro</span>
               <span className="dot-sep">·</span>
               <span>Unlimited on Business</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* AI ASSISTANT */}
+      <section id="ai" className="section section--mist feature">
+        <div className="wrap split">
+          <div className="stack">
+            <h2 className="h2">An AI assistant that knows each client.</h2>
+            <p className="lead">
+              Tap ✨ AI beside any field to write a caption in English or Arabic, add hashtags and hooks, turn an idea into a brief, rewrite, translate,
+              summarise the comments or break a task into checklist steps.
+            </p>
+            <p>
+              Every client folder has a brand profile: voice, audience, do&apos;s and don&apos;ts, example captions and a brand kit with logos, colours
+              and fonts. The AI uses that client&apos;s profile and their recently approved captions, so it writes like them. Nothing is saved until you
+              insert it.
+            </p>
+            <div className="pill-note">
+              <span>$4/mo add-on on Team and Pro</span>
+              <span className="dot-sep">·</span>
+              <span>Included on Business</span>
+              <span className="dot-sep">·</span>
+              <span>Coming soon: monthly content ideas and AI images</span>
+            </div>
+          </div>
+          <div className="panel panel--light" aria-hidden="true">
+            <span className="label">✨ AI · Caption · Northwind Dental</span>
+            <div className="chips">
+              {AI_TOOLS.map((t) => (
+                <span key={t} className="chip" style={t === "Write caption" ? { background: "var(--cobalt)", color: "#fff", fontSize: 12 } : { fontSize: 12 }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div style={{ background: "#fff", border: "1px solid var(--line-soft)", borderRadius: 12, padding: 12, fontSize: 14 }}>
+              Straighter smiles start with one question. Swipe for the 5 we hear most about braces 🦷
+            </div>
+            <div className="btn-row">
+              <span className="btn btn--dark btn--sm">Insert</span>
+              <span className="btn btn--outline btn--sm">Try again</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CLAUDE AND CHATGPT */}
+      <section id="connect" className="section section--ink feature">
+        <div className="wrap split">
+          <div className="panel" aria-hidden="true">
+            {CONNECT_ASKS.map(([who, text], i) => (
+              <div
+                key={i}
+                style={{
+                  alignSelf: who === "You" ? "flex-end" : "flex-start",
+                  maxWidth: "88%",
+                  background: who === "You" ? "var(--cobalt)" : "var(--ink-3)",
+                  borderRadius: 12,
+                  padding: "10px 12px",
+                  fontSize: 13,
+                }}
+              >
+                {text}
+              </div>
+            ))}
+          </div>
+          <div className="stack">
+            <h2 className="h2">Work from Claude or ChatGPT.</h2>
+            <p className="lead">
+              Connect Claude or ChatGPT to your workspace. Ask what&apos;s due, check the team&apos;s workload or read a brief, then have it create
+              tasks, move cards, edit captions, comment and assign.
+            </p>
+            <p>
+              Everyone connects as themselves and only gets what they can already see and do. It asks before every change, Admins see &ldquo;via
+              Claude&rdquo; in the history, and you can disconnect anytime in Settings → Connected apps.
+            </p>
+            <div className="pill-note">
+              <span>Every plan, including Free</span>
+              <span className="dot-sep">·</span>
+              <span>For members, not guests</span>
             </div>
           </div>
         </div>

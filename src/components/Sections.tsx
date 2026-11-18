@@ -155,7 +155,7 @@ export function Bento() {
         </div>
         <div className="tile__text">
           <b>Client approvals</b>
-          <span>Clients approve on the board as guests. No screenshots on WhatsApp.</span>
+          <span>Clients approve the exact version, and the card moves on by itself.</span>
         </div>
       </Link>
 
@@ -173,6 +173,32 @@ export function Bento() {
         <div className="tile__text">
           <b>Recurring tasks and export</b>
           <span>Routine work creates itself. Send a client their month in one file.</span>
+        </div>
+      </Link>
+
+      <Link href="/features#connect" className="tile tile--row span-3">
+        <div aria-hidden="true" style={{ display: "flex", flexDirection: "column", gap: 6, fontSize: 12 }}>
+          <span style={{ alignSelf: "flex-end", background: "var(--cobalt)", borderRadius: 10, padding: "8px 10px" }}>What&apos;s due this week?</span>
+          <span style={{ alignSelf: "flex-start", background: "var(--ink-3)", borderRadius: 10, padding: "8px 10px", color: "var(--on-ink-2)" }}>3 cards for Northwind Dental…</span>
+        </div>
+        <div className="tile__text">
+          <b>Claude and ChatGPT</b>
+          <span>Ask about your work and update cards from the chat.</span>
+        </div>
+      </Link>
+
+      <Link href="/features#ai" className="tile tile--light tile--row span-3">
+        <div aria-hidden="true" style={{ background: "#fff", border: "1px solid var(--line-soft)", borderRadius: 12, padding: 12, display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }}>
+          <span style={{ fontWeight: 700 }}>✨ AI · Write caption</span>
+          <span>Straighter smiles start with one question. Swipe for the 5 we hear most 🦷</span>
+          <span style={{ display: "flex", gap: 6, fontWeight: 600, flexWrap: "wrap" }}>
+            <span style={{ background: "var(--ink)", color: "#fff", borderRadius: 999, padding: "5px 10px" }}>Insert</span>
+            <span style={{ border: "1px solid var(--line-btn)", borderRadius: 999, padding: "4px 10px" }}>Try again</span>
+          </span>
+        </div>
+        <div className="tile__text">
+          <b>AI assistant</b>
+          <span>Captions, briefs and translations in each client&apos;s own voice.</span>
         </div>
       </Link>
     </div>

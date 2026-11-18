@@ -28,7 +28,7 @@ const GROUPS: { title: string; rows: [string, Cell, Cell, Cell, Cell][] }[] = [
       ["Views", "Kanban, List", "+ Calendar, Table", "+ Timeline", "All"],
       ["Custom fields per project", "3", "15", "Unlimited", "Unlimited"],
       ["Auto-assign by column", null, "Add-on", "✓", "✓"],
-      ["Automation runs a month", null, "Add-on", "Unlimited", "Unlimited"],
+      ["Automation runs a month", null, "500 with add-on", "3,000", "Unlimited"],
       ["Recurring tasks", null, "✓", "✓", "✓"],
       ["Private projects", null, "✓", "✓", "✓"],
       ["Private folders", null, null, null, "✓"],
@@ -50,13 +50,21 @@ const GROUPS: { title: string; rows: [string, Cell, Cell, Cell, Cell][] }[] = [
       ["Customizations included", null, null, "1 a year", "3 a year"],
     ],
   },
+  {
+    title: "AI and connected apps",
+    rows: [
+      ["AI assistant", null, "Add-on", "Add-on", "✓"],
+      ["AI credits a month", null, "300 with add-on", "800 with add-on", "5,000"],
+      ["Claude and ChatGPT connector", "✓", "✓", "✓", "✓"],
+    ],
+  },
 ];
 
 const ADDONS = [
-  { name: "Automations", price: "$6", per: "/mo", text: "Unlimited runs on Team. Included in Pro and Business." },
+  { name: "Automations", price: "$6", per: "/mo", text: "500 runs a month on Team. Included in Pro (3,000 runs) and Business (unlimited)." },
   { name: "Extra storage", price: "$4", per: "/mo", text: "+100 GB of Webetask hosted storage." },
   { name: "WhatsApp alerts", price: "from $15", per: "", text: "1,000 credits. Pro includes 200 a month, Business 500.", soon: true },
-  { name: "AI assistant", price: "$8", per: "/mo", text: "+1,000 AI credits. Free gets 20 a month, Pro 300, Business 1,000.", soon: true },
+  { name: "AI assistant", price: "$4", per: "/mo", text: "300 AI credits a month on Team, 800 on Pro. Included in Business with 5,000. More credits: 1,000 for $9 or 5,000 for $39." },
 ];
 
 const FAQ = [
